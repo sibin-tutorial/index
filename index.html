@@ -3,179 +3,141 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>World-Class 1:1 Java Full Stack Training</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <title>Java Full Stack 1:1 Training</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0f1724; /* deep slate */
-      --card:#0b1220;
-      --accent:#0ea5a4; /* teal-ish */
-      --muted:#94a3b8;
-      --glass: rgba(255,255,255,0.04);
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --accent: #0ea5a4;
+      --muted: #94a3b8;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background:linear-gradient(180deg,var(--bg) 0%, #071025 100%);
-      color:#e6eef6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:40px 20px;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, #071025 100%);
+      color: #e6eef6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
     }
-    .container{
-      width:1100px;
-      max-width:100%;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:18px;
-      padding:28px;
-      box-shadow: 0 10px 30px rgba(2,6,23,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
-      display:grid;
+    .container {
+      display: grid;
       grid-template-columns: 1fr 1fr;
-      gap:20px;
+      gap: 20px;
+      width: 1100px;
+      max-width: 100%;
     }
-    .card{
-      background:var(--card);
-      border-radius:14px;
-      padding:22px;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      box-shadow: 0 6px 18px rgba(2,6,23,0.7);
-      border:1px solid rgba(255,255,255,0.03);
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
-    .left .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      background:linear-gradient(90deg, rgba(14,165,164,0.12), rgba(14,165,164,0.06));
-      padding:8px 12px;
-      border-radius:999px;
-      width:max-content;
+    h1 {
+      font-size: 22px;
+      margin: 0;
+      color: #fff;
     }
-    .title{
-      font-size:20px;
-      font-weight:700;
-      letter-spacing:-0.2px;
-      margin:6px 0 0 0;
+    .subtitle { font-size: 14px; color: var(--muted); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
     }
-    .subtitle{color:var(--muted);font-size:13px}
-    .features{
-      display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px
+    .btn-whatsapp {
+      background: linear-gradient(90deg,#10b981,#06b6d4);
+      color: #042022;
     }
-    .feature{display:flex;gap:10px;align-items:flex-start}
-    .feature svg{flex:0 0 20px;margin-top:3px}
-    .project-box{background:var(--glass);padding:14px;border-radius:10px;border:1px dashed rgba(255,255,255,0.03)}
-    .cta-wrap{display:flex;gap:12px;align-items:center;margin-top:auto}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;font-weight:700;border:0;cursor:pointer;text-decoration:none;
+    .btn-email {
+      background: linear-gradient(90deg,#334155,#0f1724);
+      color: var(--accent);
+      border: 1px solid rgba(255,255,255,0.1);
     }
-    .btn-whatsapp{background:linear-gradient(90deg,#10b981,#06b6d4);color:#042022}
-    .btn-primary{background:linear-gradient(90deg,#334155,#0f1724);color:var(--accent);border:1px solid rgba(255,255,255,0.03)}
-
-    /* right card style */
-    .right .instructor{
-      display:flex;gap:14px;align-items:center
+    .btn-syllabus {
+      background: linear-gradient(90deg,#9333ea,#4f46e5);
+      color: #fff;
     }
-    .avatar{width:82px;height:82px;border-radius:12px;background:linear-gradient(135deg,#0ea5a4,#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:#082027}
-    .pill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-weight:600;color:var(--muted);font-size:13px}
-    .specs{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-    .spec{background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:10px;font-weight:600;color:var(--muted);font-size:13px}
-    .list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-    .list li{display:flex;gap:10px;align-items:flex-start}
-
-    /* small devices */
-    @media (max-width:900px){
-      .container{grid-template-columns:1fr;}
-      .features{grid-template-columns:1fr}
+    .specs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .spec {
+      background: rgba(255,255,255,0.05);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    ul { margin: 0; padding-left: 16px; }
+    ul li { margin: 4px 0; }
+    @media(max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="container" role="main">
-    <section class="card left" aria-labelledby="title">
-      <div class="badge" aria-hidden>
-        <!-- Icon -->
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 7v7c0 5 3.6 9.6 9 13 5.4-3.4 9-8 9-13V7l-9-5z" fill="rgba(14,165,164,0.95)"/></svg>
-        <span style="font-weight:700">1:1 Intensive — 1 Month</span>
+  <div class="container">
+    
+    <!-- Left Card -->
+    <section class="card">
+      <h1>World-Class Java Full Stack Training (1:1)</h1>
+      <p class="subtitle">Java • Spring Boot • Angular — Personalized mentorship with hands-on project, resume review, and job support.</p>
+      
+      <div>
+        <strong>Curriculum (Fast-Track 1 Month)</strong>
+        <p class="subtitle">Week 1: Core Java • Week 2: Spring Boot • Week 3: Angular • Week 4: Full Stack Project + Deployment</p>
       </div>
-
-      <h1 id="title" class="title">World-Class Java Full Stack Training</h1>
-      <p class="subtitle">Java • Spring Boot • Angular — Personalized mentorship, hands-on project, resume & job support.</p>
-
-      <div class="features" aria-hidden>
-        <div>
-          <div class="feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="#34d399" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>One-to-One Mentorship</strong><div class="subtitle">Focused training tailored to your goals.</div></div></div>
-          <div class="feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 7h18M3 12h18M3 17h18" stroke="#60a5fa" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Hands-on Project</strong><div class="subtitle">Build, test & deploy a real-world app.</div></div></div>
-        </div>
-        <div>
-          <div class="feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#fbbf24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Resume & Interview Prep</strong><div class="subtitle">Mock interviews & ATS-friendly resume.</div></div></div>
-          <div class="feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l4 8-4 6-4-6 4-8z" stroke="#ef4444" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Job Assistance</strong><div class="subtitle">Placement guidance and referral help.</div></div></div>
-        </div>
-      </div>
-
-      <div class="project-box" aria-label="Curriculum summary">
-        <strong>Curriculum (1 Month Fast-Track)</strong>
-        <div class="subtitle" style="margin-top:8px">Week 1: Core Java • Week 2: Spring Boot • Week 3: Angular • Week 4: Full-stack project & deployment</div>
-      </div>
-
-      <div class="cta-wrap">
-        <a class="btn btn-whatsapp" href="https://wa.me/918075866854?text=Hi%20Sibin%2C%20I%27m%20interested%20in%20the%20Java%20Full%20Stack%201%3A1%20training.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Enroll on WhatsApp">
-          <!-- WhatsApp SVG -->
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.5 3.5A11 11 0 1 0 12 23.5L8.2 21.8 8 18.2A11 11 0 0 0 20.5 3.5z" fill="#fff" opacity="0.06"/><path d="M17.2 14.5c-.4-.2-2.3-1.2-2.6-1.3-.3-.1-.6-.1-.9.2-.3.3-1.1 1.3-1.3 1.6-.2.3-.4.4-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1.1-1.8-2.6-2-3.1-.2-.5 0-.7.2-.9.2-.2.4-.5.6-.7.2-.2.3-.3.5-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.9-2.2-1.2-3-.3-.8-.6-.7-.9-.7-.2 0-.6 0-.9 0-.3 0-.9.1-1.4.6-.5.5-1.9 1.9-1.9 4.6 0 2.7 2 5.3 2.3 5.7.3.4 4 6.6 9.5 6.5 5.5-.1 5.5-3.9 6-4.3.5-.4 1.1-1.3 1.2-2.4.1-1.1-.3-1.9-.7-2.2-.4-.3-.9-.4-1.3-.6z" fill="#042022"/></svg>
+      
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:auto">
+        <a class="btn btn-whatsapp" target="_blank" href="https://wa.me/918075866854?text=Hi%20Sibin%2C%20I'm%20interested%20in%20the%20Java%20Full%20Stack%20training.">
           Enroll on WhatsApp
         </a>
-
-        <a class="btn btn-primary" href="mailto:sibinmuhammed@gmail.com?subject=Enroll%20-%20Java%20Full%20Stack%20Training&body=Hi%20Sibin%2C%0A%0AI%20want%20to%20enroll%20in%20the%20Java%20Full%20Stack%201%3A1%20training.%20Please%20send%20the%20details.%0A%0AThanks." aria-label="Email to enroll">
+        <a class="btn btn-email" href="mailto:sibinmuhammed@gmail.com?subject=Enroll%20-%20Java%20Full%20Stack%20Training">
           Contact via Email
         </a>
+        <a class="btn btn-syllabus" href="syllabus.html">
+          📘 View Syllabus
+        </a>
       </div>
-
     </section>
-
-    <aside class="card right" aria-labelledby="instructor">
-      <div class="instructor">
-        <div class="avatar">SM</div>
-        <div>
-          <div id="instructor" style="font-weight:800;font-size:18px">Sibin Muhammed — Lead Mentor</div>
-          <div class="subtitle">Certified Spring Java Developer • 11+ years experience • Trainer & Consultant</div>
-        </div>
-      </div>
-
-      <div style="margin-top:8px" class="specs">
+    
+    <!-- Right Card -->
+    <aside class="card">
+      <h2 style="margin:0">Your Mentor</h2>
+      <p><strong>Sibin Muhammed</strong> — Certified Spring Java Developer, 11+ years experience, Trainer & Consultant</p>
+      
+      <div class="specs">
         <div class="spec">1:1 Live Sessions</div>
         <div class="spec">Hands-on Project</div>
         <div class="spec">Resume Review</div>
         <div class="spec">Job Assistance</div>
       </div>
-
-      <div style="margin-top:14px">
-        <strong>What you'll build</strong>
-        <ul class="list">
-          <li>• Full-stack web app with authentication & CRUD</li>
-          <li>• REST APIs with Spring Boot</li>
-          <li>• Responsive Angular frontend</li>
-          <li>• Deploy to cloud (AWS/Azure/GCP) or App Service</li>
+      
+      <div>
+        <strong>What You’ll Build:</strong>
+        <ul>
+          <li>Full-stack web app with Authentication & CRUD</li>
+          <li>REST APIs with Spring Boot</li>
+          <li>Responsive Angular Frontend</li>
+          <li>Deploy to AWS / Azure / GCP</li>
         </ul>
       </div>
-
-      <div style="margin-top:12px">
-        <strong>Program Details</strong>
-        <div class="subtitle" style="margin-top:6px">Duration: <strong>1 Month</strong> • Mode: <strong>1:1 Online</strong> • Certificate on completion</div>
+      
+      <div>
+        <strong>Program Details:</strong>
+        <p class="subtitle">Duration: <b>1 Month</b> • Mode: <b>1:1 Online</b> • Certificate on Completion</p>
       </div>
-
-      <div style="margin-top:auto;display:flex;gap:10px;align-items:center">
-        <a class="btn btn-whatsapp" href="https://wa.me/918075866854?text=Hi%20Sibin%2C%20I%27d%20like%20to%20know%20more%20about%20the%201%3A1%20training." target="_blank" rel="noopener">Message to Enroll</a>
-        <a class="btn btn-primary" href="#" onclick="window.print()">Print / Save</a>
-      </div>
-
     </aside>
+    
   </div>
 </body>
 </html>
